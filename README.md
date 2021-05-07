@@ -1,0 +1,2 @@
+# Sports__Booking_App
+Our IDP project - Please don't update on this repository ( just open it by following the first 4 minutes of this video - ( https://www.youtube.com/watch?v=Y1fBfrcRMEs&amp;t=3s ) " you can access all files" , then using your visual studio just edit your specific files, after that you can send me the updated codes as word files on whatsapp OR by creating a new Github repository on your account )
