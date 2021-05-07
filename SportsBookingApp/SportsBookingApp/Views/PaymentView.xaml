@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:SportsBookingApp.ViewModels"
+             x:Class="SportsBookingApp.Views.PaymentView">
+    
+    <ContentPage.BindingContext>
+        <vm:PaymentViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="170" Margin="10,0,0,0">
+                    <Label x:Name="sportname" 
+            Text="Sport Name"
+             FontSize="Title"
+            Style="{DynamicResource LargeLabel}"
+            />
+
+                    <Label x:Name="sport" 
+            Text="Futsal"
+             FontSize="Title"
+            Style="{DynamicResource LargeLabel}"/>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="170" Margin="10,0,0,0">
+                    <Label x:Name="centername" 
+            Text="Center Name"
+             FontSize="Title"
+            Style="{DynamicResource LargeLabel}"
+            />
+
+                    <Label x:Name="center" 
+            Text="Stars Center"
+             FontSize="Title"
+            Style="{DynamicResource LargeLabel}"/>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="250" Margin="10,0,0,0" Padding="0,0,0,0">
+                    <Label x:Name="venue" 
+            Text="Venue"
+             FontSize="Title"
+            Style="{DynamicResource LargeLabel}"/>
+
+                    <Label x:Name="venuenumber" 
+            Text="5"
+             FontSize="Title"
+            Style="{DynamicResource LargeLabel}"/>
+
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="170" Margin="10,0,0,0">
+                    <Label x:Name="Booking1" 
+            Text="Booking Time"
+             FontSize="Title"
+            Style="{DynamicResource LargeLabel}"/>
+
+                    <Label x:Name="venuenumber1" 
+            Text="5"
+             FontSize="Title"
+            Style="{DynamicResource LargeLabel}"/>
+                </StackLayout>
+                <Label 
+            Text=".........................................................................."
+            FontSize="20"
+            Margin="10,0,0,0"/>
+                <StackLayout Orientation="Horizontal" Spacing="190" Margin="10,0,0,0">
+                    <Label x:Name="Hour" 
+            Text="hour cost"
+            Style="{DynamicResource LargeLabel}"
+             FontSize="Title"
+              />
+
+                    <Label x:Name="Hourcost" 
+            Text="60 Rm"
+             FontSize="Title"
+            Style="{DynamicResource LargeLabel}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="180" Margin="10,0,0,0">
+                    <Label x:Name="numberhours" 
+            Text="No. of Hours"
+             FontSize="Title"
+              />
+
+                    <Label x:Name="number" 
+            Text="2"
+             FontSize="Title"/>
+                </StackLayout>
+                <Label 
+            Text=".........................................................................."
+            FontSize="20"
+            Margin="10,0,0,0"/>
+                <StackLayout Orientation="Horizontal" Spacing="230" Margin="10,0,0,0" BackgroundColor="Red">
+                    <Label x:Name="total" 
+            Text="Total"
+             FontSize="Title"
+             FontAttributes="Bold"
+              />
+
+                    <Label x:Name="result" 
+            Text="120 RM"
+             FontSize="Title"
+             FontAttributes="Bold"/>
+                </StackLayout>
+                <Frame OutlineColor="red">
+                    <Label
+            Text="Note: in case of cancellation money can be refunded ONLY if the cancellation is done at least before 24 hours from the booking time."
+           FontSize="18"
+           FontAttributes="Bold"
+            Margin="10,0,0,0"/>
+                </Frame>
+
+                <StackLayout Orientation="Horizontal" Spacing="20" Margin="10,0,0,0">
+                    <Label x:Name="agree" 
+            Text="I Agree on the above note"
+             FontSize="Title"
+             FontAttributes="Bold"
+              />
+                    <CheckBox x:Name="checkbox"  ></CheckBox>
+                </StackLayout>
+                <Label x:Name="lblcheckbox" FontSize="Large" TextColor="red" Margin="10,0,0,0"/>
+                <Label
+                Text="Payment Method"
+                FontSize="Title"
+                Margin="10,0,0,0"
+                FontAttributes="Bold"
+                />
+
+                <Grid HeightRequest="100">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <CollectionView  Margin="10,0,0,0"
+                            ItemsSource="{Binding products}" BackgroundColor="White" 
+                                 SelectionMode="Single"
+                                 x:Name="sasa">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="400"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="{Binding imageurl}"
+                                       WidthRequest="0"
+                                       HeightRequest="0"
+                                       Grid.Column="1"/>
+
+                                    <StackLayout Orientation="Vertical" Grid.Column="0" WidthRequest="500">
+                                        <Label Text="{Binding productname}" FontSize="Title" FontAttributes="Bold"/>
+                                        <Label Text="{Binding price}"   FontSize="Medium"/>
+
+
+                                    </StackLayout>
+                                </Grid>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+
+            </StackLayout>
+
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

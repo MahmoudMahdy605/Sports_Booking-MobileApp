@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:SportsBookingApp.ViewModels"
+             x:Class="SportsBookingApp.Views.ManageAppDataView">
+    
+    <ContentPage.BindingContext>
+        <vm:ManageAppDataViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="manage Sports" HorizontalOptions="Center" VerticalOptions="Center"
+                    x:Name="ButtonSports" Clicked="ButtonSports_Clicked" />
+
+            <Button Text="manage Courts" HorizontalOptions="Center" VerticalOptions="Center"
+                    x:Name="ButtonCourts" Clicked="ButtonCourts_Clicked" />
+
+            <Button Text="manage Centers" HorizontalOptions="Center" VerticalOptions="Center"
+                    x:Name="ButtonCenters" Clicked="ButtonCenters_Clicked" />
+
+            <Button Text="manage Bookings" HorizontalOptions="Center" VerticalOptions="Center"
+                    x:Name="ButtonBookings" Clicked="ButtonBookings_Clicked" />
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

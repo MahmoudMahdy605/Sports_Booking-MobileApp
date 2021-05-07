@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:SportsBookingApp.ViewModels"
+             x:Class="SportsBookingApp.Views.HomeView"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel/>
+    </ContentPage.BindingContext>
+
+    <!--
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="app_logo"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="-20,0,0,0" Aspect="AspectFill"
+                   WidthRequest="85" HeightRequest="85"/>
+            <Label Text="Reserve It"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="29" TextColor="DarkMagenta"/>
+            <Image Source="user_photo_80"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="End"
+                   Margin="10,0"
+                   WidthRequest="40" HeightRequest="40"/>
+        </StackLayout>
+    </Shell.TitleView>
+    -->
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="White" Padding="20,7,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0">
+                <Label VerticalOptions="Center" HorizontalOptions="Start" 
+                       TextColor="#3C3E43" FontSize="30" FontAttributes="Bold">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Salam "/>
+                            <Span Text="{Binding UserName}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <SearchBar Margin="0,6,15,3" Placeholder="Search Sport" PlaceholderColor="RosyBrown" 
+                           BackgroundColor="#F4F5ff" HorizontalOptions="Fill"/>
+            </StackLayout>
+
+            <CollectionView Grid.Row="1" Margin="0,10,0,0"
+                            ItemsSource="{Binding Sports}"
+                            HeightRequest="100" VerticalOptions="FillAndExpand"
+                            HorizontalScrollBarVisibility="Never"
+                            SelectionChanged="SportsCollectionView_SelectionChanged"
+                            ItemsLayout="HorizontalList"
+                            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="10,0" >
+                            <StackLayout Spacing="15" BackgroundColor="White">
+                                <Frame HasShadow="True" HeightRequest="70" WidthRequest="70" Padding="0" CornerRadius="10">
+                                    <Frame Padding="10">
+                                        <Image Source="{Binding SportIcon}" Aspect="Fill" />
+                                    </Frame>
+                                </Frame>
+                                <Label Text="{Binding SportName}" HorizontalTextAlignment="Center" TextColor="Black"/>
+                            </StackLayout>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Grid.Row="2" Margin="0,15,0,0" Text="Recommended Sports" TextColor="#3C3E43" FontSize="20" FontAttributes="Bold"/>
+
+            <CollectionView Grid.Row="3" Margin="0,2,0,5"
+                            ItemsSource="{Binding LatestItems}"
+                            VerticalOptions="FillAndExpand"
+                            HeightRequest="250"
+                            HorizontalScrollBarVisibility="Never"                           
+                            SelectionChanged="CourtsCollectionView_SelectionChanged"
+                            ItemsLayout="HorizontalList"
+                            SelectionMode="Single" BackgroundColor="White">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="10,0,10,2" >
+                            <Frame Padding="9" CornerRadius="25" HasShadow="True" BorderColor="Gainsboro" >
+                                <StackLayout >
+                                    <Grid RowSpacing="11">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Frame Grid.Row="0" HasShadow="True" HeightRequest="190" WidthRequest="230" Padding="0" CornerRadius="20" BackgroundColor="Black">
+                                            <Frame Padding="0"  >
+                                                <Image Source="{Binding CourtImage}" Aspect="AspectFill"/>
+                                            </Frame>
+                                        </Frame>
+
+                                        <StackLayout Grid.Row="1" Orientation="Horizontal" Padding="11,0">
+                                            <Label Text="{Binding CourtName}" TextColor="#3C3E43" FontSize="22" FontAttributes="Bold"
+                                       VerticalOptions="Center" HorizontalOptions="Start"/>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="5">
+                                                <Image Source="star_img.png" VerticalOptions="Center" HeightRequest="25" WidthRequest="25" />
+                                                <Label Text="{Binding Rating}" FontSize="17" VerticalOptions="Center" TextColor="Blue"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

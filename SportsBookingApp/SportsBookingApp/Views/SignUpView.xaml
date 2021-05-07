@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:SportsBookingApp.ViewModels"
+             x:Class="SportsBookingApp.Views.SignUpView">
+
+    <ContentPage.BindingContext>
+        <vm:SignUpViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Frame VerticalOptions="Start" HorizontalOptions="FillAndExpand" HeightRequest="330" Padding="0">
+                <Image Source="app_img1" Aspect="AspectFit" Margin="0,-45,0,0" BackgroundColor="#e05552"/>
+            </Frame>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,-80,0,0">
+                <Frame BackgroundColor="White" HasShadow="True"
+                   Padding="20,25,20,0" CornerRadius="40" WidthRequest="240">
+                    <StackLayout Spacing="20" VerticalOptions="CenterAndExpand">
+                        <Label Text="Register" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <StackLayout Spacing="10">
+                            <Grid WidthRequest="160" HorizontalOptions="Start">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="210"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" HeightRequest="25" WidthRequest="25" Source="user_sign_80"/>
+                                <Entry Grid.Column="1" Placeholder="User Name" Text="{Binding Username}" FontSize="15"/>
+                            </Grid>
+                            <Grid WidthRequest="160" HorizontalOptions="Start">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="210"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" HeightRequest="25" WidthRequest="25" Source="email_sign_80"/>
+                                <Entry Grid.Column="1" Placeholder="Email" Text="{Binding Email}" FontSize="15" IsPassword="True"/>
+                            </Grid>
+                            <Grid WidthRequest="160" HorizontalOptions="Start">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="210"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" HeightRequest="25" WidthRequest="25" Source="password_sign_80"/>
+                                <Entry Grid.Column="1" Placeholder="Password" Text="{Binding Password}" FontSize="15" IsPassword="True"/>
+                            </Grid>
+                        </StackLayout>
+                        <Button Text="Register" Command="{Binding SignUpCommand}" HorizontalOptions="FillAndExpand" Margin="0,0,0,15" BackgroundColor="Blue" CornerRadius="20" TextColor="White"/>
+                    </StackLayout>
+                </Frame>
+                <StackLayout Margin="25" Spacing="10">
+                    <Label Text="Already have an account ?" HorizontalOptions="Center" FontSize="14"/>
+                    <Label Text="Sign In" HorizontalOptions="Center" TextColor="Blue" FontSize="16">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToSignInCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:SportsBookingApp.ViewModels"
+             x:Class="SportsBookingApp.Views.AdminMainView">
+
+    <ContentPage.BindingContext>
+        <vm:AdminMainViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="app_logo"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="-20,0,0,0" Aspect="AspectFill"
+                   WidthRequest="85" HeightRequest="85"/>
+                <Label Text="Reserve It"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="29" TextColor="DarkMagenta"/>
+                <Image Source="user_photo_80"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="End"
+                   Margin="10,0"
+                   WidthRequest="40" HeightRequest="40"/>
+            </StackLayout>
+
+
+            <Grid BackgroundColor="White" Padding="20,7,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0">
+                    <Label VerticalOptions="Center" HorizontalOptions="Start" 
+                       TextColor="#3C3E43" FontSize="30" FontAttributes="Bold">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Welcome "/>
+                                <Span Text="{Binding UserName}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <CollectionView Grid.Row="1" Margin="0,10,0,0"
+                            ItemsSource="{Binding Sports}"
+                            HeightRequest="400" VerticalOptions="FillAndExpand"
+                            HorizontalScrollBarVisibility="Never"
+                            SelectedItem="{Binding SelectedSport}" SelectionChangedCommand="{Binding SportsCollectionView_SelectionChanged}"
+                            
+                            SelectionMode="Multiple">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2"
+                                         VerticalItemSpacing="6"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView Padding="10,0">
+                                <StackLayout Spacing="15" BackgroundColor="White" >
+                                    <Frame HasShadow="True" HeightRequest="70" WidthRequest="70" Padding="0" CornerRadius="10" >
+                                        <Frame Padding="10" BackgroundColor="White">
+                                            <Image Source="{Binding SportIcon}" Aspect="Fill" />
+                                        </Frame>
+                                    </Frame>
+                                    <Label Text="{Binding SportName}" HorizontalTextAlignment="Center" TextColor="Black"/>
+                                </StackLayout>
+                            </ContentView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </Grid>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
