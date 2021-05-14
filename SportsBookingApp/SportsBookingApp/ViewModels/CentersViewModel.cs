@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace SportsBookingApp.ViewModels
@@ -19,6 +21,29 @@ namespace SportsBookingApp.ViewModels
             CentersItemsBySport = new ObservableCollection<Center>();
             GetCenterItemsBySport(sport.SportName);
 
+            OpenGoogleMapLocationCommand = new Command(async () => await OpenGoogleMapLocationCommandAsync());
+
+        }
+
+        public Command OpenGoogleMapLocationCommand { get; set; }
+
+        private async Task OpenGoogleMapLocationCommandAsync()
+        {
+            if (!double.TryParse("3.194841680100653", out double lat))
+                return;
+            if (!double.TryParse("101.71713055588967", out double lng))
+                return;
+            await Map.OpenAsync(lat, lng, new MapLaunchOptions
+            {
+                Name = "BBC Futsal Center",
+                NavigationMode = NavigationMode.None
+
+            });
+
+
+            //await Application.Current.MainPage.DisplayAlert("location ", " view location", "OK");
+            //await Application.Current.MainPage.Navigation.PopModalAsync();
+            // await _navigationService.GoBackAsync();
         }
 
         private Sport _SelectedSport;
@@ -92,7 +117,7 @@ namespace SportsBookingApp.ViewModels
             }
             TotalCenters = CentersItemsBySport.Count();
 
-            await Application.Current.MainPage.DisplayAlert("inside GetCenterItems ", " inside GetCenterItems", "OK");
+            //await Application.Current.MainPage.DisplayAlert("inside GetCenterItems ", " inside GetCenterItems", "OK");
         }
         /*
         void INavigatedAware.OnNavigatedTo(INavigationParameters parameters)

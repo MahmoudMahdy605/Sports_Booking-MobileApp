@@ -28,7 +28,12 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =1,
                     CourtPaymentCostScale = 30,
-                    CenterName = "Champions Center"
+                    CenterName = "Champions Center",
+
+
+                    // may need to add bokmemb & totrev for all courts
+
+
                 },new Court
                 {
                     CourtID = 2,
@@ -168,7 +173,11 @@ namespace SportsBookingApp.Helpers
                         CourtPaymentTimeScale = court.CourtPaymentTimeScale,
                         MaxReservationATime = court.MaxReservationATime,
                         CourtPaymentCostScale = court.CourtPaymentCostScale,
-                        CenterName = court.CenterName
+                        CenterName = court.CenterName,
+
+
+                        BookingMember = court.BookingMember,
+                        TotalRevenueForTheCourtPerDay = court.TotalRevenueForTheCourtPerDay
 
                     });
                 }

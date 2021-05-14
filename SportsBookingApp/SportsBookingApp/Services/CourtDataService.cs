@@ -30,7 +30,11 @@ namespace SportsBookingApp.Services
                     CourtPaymentTimeScale = f.Object.CourtPaymentTimeScale,
                     CourtPaymentCostScale = f.Object.CourtPaymentCostScale,
                     MaxReservationATime = f.Object.MaxReservationATime,
-                    CenterName = f.Object.CenterName
+                    CenterName = f.Object.CenterName,
+
+
+                    BookingMember = f.Object.BookingMember,
+                    TotalRevenueForTheCourtPerDay = f.Object.TotalRevenueForTheCourtPerDay
                 }).ToList();
 
             return courts;
@@ -73,6 +77,19 @@ namespace SportsBookingApp.Services
             }
 
             return CourtsNamesBySportAndCenter;
+        }
+
+        public async Task<ObservableCollection<Court>> GetCourtsDetailsBySportAndCenterAsync(string selectedCenterName, string selectedSportName)
+        {
+            var CourtsDetailsBySportAndCenter = new ObservableCollection<Court>();
+            var items = (await GetCourtItemsAsync()).Where(p => p.CenterName == selectedCenterName).Where(p => p.SportName == selectedSportName).ToList();
+
+            foreach (var item in items)
+            {
+                CourtsDetailsBySportAndCenter.Add(item);
+            }
+
+            return CourtsDetailsBySportAndCenter;
         }
 
         public async Task<ObservableCollection<Court>> GetCourtDataByCenterAndCourtNamesAsync(string centername, string courtname)

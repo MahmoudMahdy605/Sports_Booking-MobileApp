@@ -20,9 +20,15 @@ namespace SportsBookingApp
             else MainPage = new NavigationPage(new MainTabbedView());
             */
 
-            MainPage = new SignInView();
+            //MainPage = new ManageAppDataView();
 
+            
+            string uname = Preferences.Get("CenterName", String.Empty);
+            if (String.IsNullOrEmpty(uname))
+                MainPage = new NavigationPage(new SignInView());
 
+            else MainPage = new NavigationPage(new AdminMainView());
+            
         }
 
         protected override void OnStart()

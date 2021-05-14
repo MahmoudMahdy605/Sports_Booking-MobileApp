@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportsBookingApp.Views.MoreView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="White" BorderColor="Gray" Margin="10">
+                <Label Text="Reserve it is a sports booking app that allows the user to view, reserve and book only with a few clicks. Our goal is to facilitate the reservation process for both the owner of the sport center and the customer, and to decrease the direct interaction between the people to provide a safe atmosphere inside the sport centre"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                       FontSize="20"/>
+            </Frame>
+            <Frame BorderColor="Gray" Margin="10">
+                <Label Text="App version 1.0"
+                       FontSize="Title"/>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

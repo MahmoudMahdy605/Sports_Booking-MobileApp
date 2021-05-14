@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace SportsBookingApp.ViewModels
@@ -16,7 +17,7 @@ namespace SportsBookingApp.ViewModels
         public BookingViewModel(Center center, string sportname)
         {
 
-            Application.Current.MainPage.DisplayAlert("1", "inside 2 par. constructor bookingView", "OK");
+            //Application.Current.MainPage.DisplayAlert("1", "inside 2 par. constructor bookingView", "OK");
 
             CourtsNames = new ObservableCollection<string>();
             //SelectedCourt = new ObservableCollection<Court>();
@@ -24,12 +25,15 @@ namespace SportsBookingApp.ViewModels
             SelectedCenter = center;
             GetCourts(center.CenterName, sportname);
 
+
+            OpenGoogleMapLocationCommand = new Command(async () => await OpenGoogleMapLocationCommandAsync(SelectedCenter));
             BookingCommand = new Command(async () => await BookingCommandAsync());
             GoBack = new Command(async () => await GoBackAsync());
 
 
         }
-        
+
+        /*
         public BookingViewModel(Center center, string sportname, string courtname)
         {
 
@@ -51,15 +55,16 @@ namespace SportsBookingApp.ViewModels
 
 
         }
-        
+        */
 
-        public BookingViewModel( Center center, string sportname, string courtname, DayOfWeek bookingdate)
+        public BookingViewModel( Center center, string sportname, string courtname, DateTime bookingdate)
         {
             
-            Application.Current.MainPage.DisplayAlert("4", "inside 4 par. constructor bookingView", "OK");
+            //Application.Current.MainPage.DisplayAlert("4", "inside 4 par. constructor bookingView", "OK");
 
             CourtsNames = new ObservableCollection<string>();
             //SelectedCourt = new ObservableCollection<Court>();
+
 
             SelectedCenter = center;
             GetCourts(center.CenterName, sportname);
@@ -68,21 +73,43 @@ namespace SportsBookingApp.ViewModels
 
             BookedSlots = new ObservableCollection<Booking>();
             GetBookedSlots(center.CenterName, courtname,  bookingdate);
-            
 
-            Application.Current.MainPage.DisplayAlert("oooo", "in 4 after data", "OK");
 
+            //Application.Current.MainPage.DisplayAlert("oooo", "in 4 after data", "OK");
+
+
+            OpenGoogleMapLocationCommand = new Command(async () => await OpenGoogleMapLocationCommandAsync(SelectedCenter));
             BookingCommand = new Command(async () => await BookingCommandAsync());
             GoBack = new Command(async () => await GoBackAsync());
 
 
         }
-        
 
+        public Command OpenGoogleMapLocationCommand { get; set; }
+
+        // write the function inside the constructor , or pass to it the center object
+        private async Task OpenGoogleMapLocationCommandAsync(Center selectedCenter)
+        {
+            if (!double.TryParse(selectedCenter.CenterLatitude.ToString(), out double lat))
+                return;
+            if (!double.TryParse(selectedCenter.CenterLongitude.ToString(), out double lng))
+                return;
+            await Map.OpenAsync(lat, lng, new MapLaunchOptions
+            {
+                Name = selectedCenter.CenterName.ToString(),
+                NavigationMode = NavigationMode.None
+
+            });
+
+
+            //await Application.Current.MainPage.DisplayAlert("location ", " view location", "OK");
+            //await Application.Current.MainPage.Navigation.PopModalAsync();
+            // await _navigationService.GoBackAsync();
+        }
         public ObservableCollection<Booking> BookedSlots { get; set; }
 
 
-        private async void GetBookedSlots(string centerName, string courtName, DayOfWeek bookingdate)
+        private async void GetBookedSlots(string centerName, string courtName, DateTime bookingdate)
         {
             var data = await new BookingDataService().GetBookedSlotsItemsByCenterAndCourtAndDateAsync( centerName,  courtName, bookingdate);
             BookedSlots.Clear();
@@ -123,36 +150,23 @@ namespace SportsBookingApp.ViewModels
 
             }
         }
-        /*
-        private Court _SelectedCourt;
-        public Court SelectedCourt
-        {
-            get { return _SelectedCourt; }
-            set
-            {
-                _SelectedCourt = value;
-                OnpropertyChanged();
 
-            }
-        }
-        */
-
-        /*
-        private string _SelectedSportName;
-        public string SelectedSportName
-        {
-            get { return _SelectedSportName; }
-            set
-            {
-                _SelectedSportName = value;
-                OnpropertyChanged();
-
-            }
-        }
-        */
 
         public ObservableCollection<string> CourtsNames { get; set; }
-        
+
+        /*
+        private string _SelectedCourtInViewModel;
+        public string SelectedCourtInViewModel
+        {
+            get { return _SelectedCourtInViewModel; }
+            set
+            {
+                _SelectedCourtInViewModel = value;
+                OnpropertyChanged();
+
+            }
+        }
+        */
 
 
         /*
@@ -265,7 +279,7 @@ namespace SportsBookingApp.ViewModels
         private async Task BookingCommandAsync()
         {
 
-            await Application.Current.MainPage.DisplayAlert("Well done", "Well done", "OK");
+            //await Application.Current.MainPage.DisplayAlert("Well done", "Well done", "OK");
             await Application.Current.MainPage.Navigation.PushModalAsync(new PaymentView() );
             
             // await _navigationService.NavigateAsync("PaymentView");

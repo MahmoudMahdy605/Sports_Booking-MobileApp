@@ -3,13 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:SportsBookingApp.Views"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            x:Class="SportsBookingApp.Views.MainTabbedView">
-    
-    
-  <!--Pages can be added as references or inline-->
+            x:Class="SportsBookingApp.Views.MainTabbedView"
+             NavigationPage.HasNavigationBar="False">
+
+
+    <!--Pages can be added as references or inline-->
     <views:HomeView Title="Home" IconImageSource="home_75.png"></views:HomeView>
-    <views:HomeView Title="My bookings" IconImageSource="booking_80"></views:HomeView>
-    <views:HomeView Title="More" IconImageSource="more_75.png"></views:HomeView>
+    <views:MyBookingHistoryView Title="My bookings" IconImageSource="booking_80"></views:MyBookingHistoryView>
+    <views:MoreView Title="More" IconImageSource="more_75.png"></views:MoreView>
 
     <!--<TabBar Shell.BackgroundColor="#FFFFFF" Shell.TabBarTitleColor="#3F82FE" Shell.TabBarUnselectedColor="#747474">
         <ShellContent Title="Home"

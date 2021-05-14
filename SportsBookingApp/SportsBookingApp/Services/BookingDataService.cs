@@ -46,11 +46,11 @@ namespace SportsBookingApp.Services
         return bookings;
         }
 
-        public async Task<ObservableCollection<Booking>> GetBookedSlotsItemsByCenterAndCourtAndDateAsync(string centerName, string courtName, DayOfWeek bookingDate)
+        public async Task<ObservableCollection<Booking>> GetBookedSlotsItemsByCenterAndCourtAndDateAsync(string centerName, string courtName, DateTime bookingDate)
         {
 
             var BookingItemsByCenterandCourtAndDate = new ObservableCollection<Booking>();
-            var items = (await GetBookingsItemsAsync()).Where(p => p.BookingDate == bookingDate).Where(p => p.CenterName == centerName).Where(p => p.CourtName == courtName).ToList();
+            var items = (await GetBookingsItemsAsync()).Where(p => p.BookingDate.Date == bookingDate.Date).Where(p => p.CenterName == centerName).Where(p => p.CourtName == courtName).ToList();
 
             foreach (var item in items)
             {
@@ -60,6 +60,32 @@ namespace SportsBookingApp.Services
             return BookingItemsByCenterandCourtAndDate;
         }
 
+        public async Task<bool> CheckForConflictBookingAsync(string centerName, DateTime bookingDate, string courtName, TimeSpan startingTime, TimeSpan endingTime)
+        {   
+            var allbookingsof = (await GetBookingsItemsAsync()).Where(p => p.CenterName == centerName).Where(p => p.BookingDate.Date == bookingDate.Date).Where(p => p.CourtName == courtName).ToList();
+
+            var ConfilctBooking = (await GetBookingsItemsAsync()).Where(p => p.CenterName == centerName).Where(p => p.BookingDate.Date == bookingDate.Date).Where(p => p.CourtName == courtName)
+                .Where(p => ( (p.StartingBookingTime.TimeOfDay.TotalSeconds  < startingTime.TotalSeconds) && (p.EndingBookingTime.TimeOfDay.TotalSeconds > startingTime.TotalSeconds) ) ||
+                ((p.EndingBookingTime.TimeOfDay.TotalSeconds > endingTime.TotalSeconds) && (p.StartingBookingTime.TimeOfDay.TotalSeconds < endingTime.TotalSeconds))).ToList();
+
+            if (ConfilctBooking.Count >= 1) return false;
+            else return true;
+
+        }
+
+        public async Task<ObservableCollection<Booking>> GetBookingsByUserNameAndDateAsync(string userName, DateTime bookingsDate)
+        {
+
+            var BookingsByUserNameAndDate = new ObservableCollection<Booking>();
+            var items = (await GetBookingsItemsAsync()).Where(p => p.Username == userName).Where(p => p.BookingDate.Date == bookingsDate.Date).ToList();
+
+            foreach (var item in items)
+            {
+                BookingsByUserNameAndDate.Add(item);
+            }
+
+            return BookingsByUserNameAndDate;
+        }
 
 
     }

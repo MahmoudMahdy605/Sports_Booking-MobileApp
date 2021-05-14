@@ -30,7 +30,9 @@ namespace SportsBookingApp.Helpers
                     CenterRating = 4.7,
                     NoOfTotalSportsforCenter = 1,
                     NoOfTotalCourtsforCenter = 3,
-                    CenterSports = "Futsal"
+                    CenterSports = "Futsal",
+                    CenterLatitude = "3.194841680100653",
+                    CenterLongitude = "101.71713055588967"
 
                 },new Center
                 {
@@ -43,7 +45,9 @@ namespace SportsBookingApp.Helpers
                     CenterRating = 4.8,
                     NoOfTotalSportsforCenter = 3,
                     NoOfTotalCourtsforCenter = 6,
-                    CenterSports = "Futsal, Ping Pong, Basketball"
+                    CenterSports = "Futsal, Ping Pong, Basketball",
+                    CenterLatitude = "3.194841680100653",
+                    CenterLongitude = "101.71713055588967"
                 },new Center
                 {
                     CenterID = 3,
@@ -55,7 +59,9 @@ namespace SportsBookingApp.Helpers
                     CenterRating = 4.7,
                     NoOfTotalSportsforCenter = 3,
                     NoOfTotalCourtsforCenter = 4,
-                    CenterSports = "Ping Pong, Badminton, Gym"
+                    CenterSports = "Ping Pong, Badminton, Gym",
+                    CenterLatitude = "3.194841680100653",
+                    CenterLongitude = "101.71713055588967"
                 }
             };
 
@@ -78,7 +84,9 @@ namespace SportsBookingApp.Helpers
                         CenterName = center.CenterName,
                         NoOfTotalCourtsforCenter = center.NoOfTotalCourtsforCenter,
                         NoOfTotalSportsforCenter = center.NoOfTotalSportsforCenter,
-                        CenterSports = center.CenterSports
+                        CenterSports = center.CenterSports,
+                        CenterLatitude = center.CenterLatitude,
+                        CenterLongitude = center.CenterLongitude
                     });
                 }
 

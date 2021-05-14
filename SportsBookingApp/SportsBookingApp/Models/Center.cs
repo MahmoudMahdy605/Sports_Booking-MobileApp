@@ -16,6 +16,8 @@ namespace SportsBookingApp.Models
         public int NoOfTotalCourtsforCenter { get; set; }
         public int CenterID { get; set; }
         public string CenterSports { get; set; }
+        public string CenterLatitude { get; set; }
+        public string CenterLongitude { get; set; }
 
     }
 

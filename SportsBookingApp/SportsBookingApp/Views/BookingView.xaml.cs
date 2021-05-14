@@ -27,6 +27,7 @@ namespace SportsBookingApp.Views
         {
             InitializeComponent();
 
+
             c = center;
             s = sportname;
 
@@ -66,27 +67,57 @@ namespace SportsBookingApp.Views
 
         private void CheckAvailability_Clicked(object sender, EventArgs e)
         {
-            asm = new BookingViewModel(c, s, SelectedCourt.SelectedItem.ToString(), SelectedBookingDate.Date.DayOfWeek);
+            asm = new BookingViewModel(c, s, SelectedCourt.SelectedItem.ToString(), SelectedBookingDate.Date);
+
+            SelectedCourt.SelectedItem = SelectedCourt.SelectedItem;
             this.BindingContext = asm;
         }
 
+
+
         private async void ButtonBook_Clicked(object sender, EventArgs e)
         {
+            // var checkconflictbooking = VerifyAvailabilityOfBookingSlotAsync(c.CenterName, SelectedBookingDate.Date.DayOfWeek, SelectedCourt.SelectedItem.ToString(), SelectedStartingBookingTime.Time, SelectedEndingBookingTime.Time);
+
+
+
 
             if (VerifyTimeSequence (SelectedStartingBookingTime.Time, SelectedEndingBookingTime.Time) == true )
             {
                 if(VerifyWorkingTime(SelectedStartingBookingTime.Time, SelectedEndingBookingTime.Time) == true)
                 {
-                    //await Application.Current.MainPage.DisplayAlert("nice", " booking time during working hour", "OK");
+
+                    try
+                    {
+                        bool Noconflictexists = await VerifyAvailabilityOfBookingSlotAsync(c.CenterName, SelectedBookingDate.Date, SelectedCourt.SelectedItem.ToString(), SelectedStartingBookingTime.Time, SelectedEndingBookingTime.Time);
+                        
+                        // SelectedCourt.SelectedItem is nullllllllllllllllll, why ;
+                        if (Noconflictexists == true)
+                        {
+
+                            await Application.Current.MainPage.DisplayAlert("Nice", " booking time is not conflicting", "OK"); // successful booking time
+
+
+                            await Navigation.PushModalAsync(new PaymentView());
+                            // navigate to paymentview with passing parameters;
+                            // navigate to paymentview with passing parameters;
+                            // navigate to paymentview with passing parameters;
+                            // navigate to paymentview with passing parameters;
+                            // navigate to paymentview with passing parameters;
+
+                        }
+                        else await Application.Current.MainPage.DisplayAlert("Conflict booking", " booking time is conflicting", "Select another availabile time"); //  booking time already exists;
+
+                    }
+                    catch 
+                    {
+
+                        await Application.Current.MainPage.DisplayAlert("Error for conflict booking", "e.Message", "OK");
+                    }
                     
-                    /*
-                    Check for dublicate with already booked slots 
-                        if(verifyAvailability == true)
-                        { display;
-                    navigate to paymentview;
-                        }else display
-                    */
-                }else await Application.Current.MainPage.DisplayAlert("Sorry", " we're only open from 8AM to 2 AM", "OK");
+                   
+                }
+                else await Application.Current.MainPage.DisplayAlert("Sorry", " we're only open from 8AM to 2 AM", "OK");
 
                 
                 /*
@@ -106,11 +137,12 @@ namespace SportsBookingApp.Views
             TimeSpan openTime = new TimeSpan(8, 0, 0);
             TimeSpan closeTime = new TimeSpan(2, 0, 0);
 
-
+            /*
             Application.Current.MainPage.DisplayAlert("endingtime ", endingtime.ToString(), "OK");
             Application.Current.MainPage.DisplayAlert("startingtime ", startingtime.ToString(), "OK");
             Application.Current.MainPage.DisplayAlert("openTime", openTime.ToString(), "OK");
             Application.Current.MainPage.DisplayAlert("closeTime", closeTime.ToString(), "OK");
+            */
 
             if ((startingtime >= openTime || startingtime <= closeTime) && (endingtime >= openTime || endingtime <= closeTime))
             {
@@ -128,7 +160,14 @@ namespace SportsBookingApp.Views
             }
             return false; // startingtime is not before endingtime  
         }
-
+        
+        private async Task<bool> VerifyAvailabilityOfBookingSlotAsync( string centername, DateTime bookingdate, string courtname, TimeSpan startingtime, TimeSpan endingtime)
+        {
+            var ConfilctBookingExists = await new BookingDataService().CheckForConflictBookingAsync (centername, bookingdate, courtname, startingtime, endingtime);
+            
+            if (ConfilctBookingExists == true) return true;
+            else return false;
+        }
 
         /*
         private void OnPickerSelectedIndexChanged(object sender, EventArgs e)

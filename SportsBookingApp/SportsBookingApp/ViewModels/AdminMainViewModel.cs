@@ -39,7 +39,7 @@ namespace SportsBookingApp.ViewModels
                 return _UserName;
             }
         }
-
+        /*
         private Sport _SelectedSport;
         public Sport SelectedSport
         {
@@ -50,6 +50,7 @@ namespace SportsBookingApp.ViewModels
                 OnpropertyChanged();
             }
         }
+        */
 
 
         public ObservableCollection<Sport> Sports { get; set; }
@@ -65,7 +66,7 @@ namespace SportsBookingApp.ViewModels
             }
         }
 
-
+        /*
         public ICommand SportsCollectionView_SelectionChanged => new Command(SportsCollectionView);
 
         private async void SportsCollectionView()
@@ -74,7 +75,7 @@ namespace SportsBookingApp.ViewModels
             await Application.Current.MainPage.DisplayAlert("going to courts by sport of specific center", "lets go", "OK");
             //await _navigationService.NavigateAsync("CenterBookingHistoryView");
 
-            /*
+            
             if (_SelectedSport != null)
             {
                 
@@ -114,8 +115,8 @@ namespace SportsBookingApp.ViewModels
                 // ((CollectionView)sender).SelectedItem = null;
                 
             }
-            */
+            
         }
-
+    */
     }
 }

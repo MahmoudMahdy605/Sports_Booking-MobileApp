@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,8 +25,8 @@ namespace SportsBookingApp.Views
             this.BindingContext = cvm;
 
         }
-
         
+
         async void CentersCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string sportname = SportName.Text.ToString();
@@ -34,7 +34,7 @@ namespace SportsBookingApp.Views
 
             if (center == null)
             {
-                await Application.Current.MainPage.DisplayAlert("error", "selectedCenter is null", "OK");
+                //await Application.Current.MainPage.DisplayAlert("error", "selectedCenter is null", "OK");
                 return;
             }
 

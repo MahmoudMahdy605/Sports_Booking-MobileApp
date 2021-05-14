@@ -12,8 +12,9 @@ namespace SportsBookingApp.Models
         public string CenterName { get; set; }
         public DateTime StartingBookingTime { get; set; }
         public DateTime EndingBookingTime { get; set; }
-        public DayOfWeek BookingDate { get; set; }
+        public DateTime BookingDate { get; set; }
         public double TotalPaymentAmount { get; set; }
+        
     }
 
 }

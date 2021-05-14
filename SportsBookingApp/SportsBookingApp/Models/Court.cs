@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace SportsBookingApp.Models
@@ -14,6 +15,12 @@ namespace SportsBookingApp.Models
         public int MaxReservationATime { get; set; }
         public string CourtPaymentTimeScale { get; set; }
         public double CourtPaymentCostScale { get; set; }
+
+
+
+        public ObservableCollection<Booking> BookingMember { get; set; }
+
+        public double TotalRevenueForTheCourtPerDay { get; set; }
 
     }
 

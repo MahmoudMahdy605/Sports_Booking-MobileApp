@@ -42,19 +42,20 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Welcome "/>
-                                <Span Text="{Binding UserName}"/>
+                                <Span x:Name="centername" Text="{Binding UserName}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
                 </StackLayout>
 
+
+                <!-- SelectedItem="{Binding SelectedSport}"-->
                 <CollectionView Grid.Row="1" Margin="0,10,0,0"
                             ItemsSource="{Binding Sports}"
                             HeightRequest="400" VerticalOptions="FillAndExpand"
-                            HorizontalScrollBarVisibility="Never"
-                            SelectedItem="{Binding SelectedSport}" SelectionChangedCommand="{Binding SportsCollectionView_SelectionChanged}"
-                            
-                            SelectionMode="Multiple">
+                            HorizontalScrollBarVisibility="Never" 
+                            SelectionChanged="SportsCollectionView_SelectionChanged"
+                            SelectionMode="Single">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" Span="2"
                                          VerticalItemSpacing="6"/>

@@ -50,7 +50,9 @@ namespace SportsBookingApp.Services
                     NoOfTotalCourtsforCenter = f.Object.NoOfTotalCourtsforCenter,
                     CenterName = f.Object.CenterName,
                     NoOfTotalSportsforCenter = f.Object.NoOfTotalSportsforCenter,
-                    CenterSports = f.Object.CenterSports
+                    CenterSports = f.Object.CenterSports,
+                    CenterLatitude = f.Object.CenterLatitude,
+                    CenterLongitude = f.Object.CenterLongitude
                 }).ToList();
 
             return centers;

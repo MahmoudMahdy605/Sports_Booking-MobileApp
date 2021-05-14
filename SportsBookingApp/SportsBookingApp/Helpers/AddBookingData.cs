@@ -48,10 +48,32 @@ namespace SportsBookingApp.Helpers
                     CourtName = "Court 1",
                     Username = "Moustafa",
                     CenterName = "BBC Futsal Center",
-                    StartingBookingTime = DateTime.Now.AddHours(5),
-                    EndingBookingTime =  DateTime.Now.AddHours(6),
-                    BookingDate = System.DayOfWeek.Thursday,
-                    TotalPaymentAmount = 200
+                    StartingBookingTime = DateTime.Now,
+                    EndingBookingTime =  DateTime.Now.AddHours(1),
+                    BookingDate = System.DateTime.Now.Date,
+                    TotalPaymentAmount = 110
+
+                },new Booking
+                {
+                    SportName = "Futsal",
+                    CourtName = "Court 1",
+                    Username = "Fadel",
+                    CenterName = "BBC Futsal Center",
+                    StartingBookingTime = DateTime.Now.AddHours(3),
+                    EndingBookingTime =  DateTime.Now.AddHours(5),
+                    BookingDate = System.DateTime.Now.Date,
+                    TotalPaymentAmount = 220
+
+                },new Booking
+                {
+                    SportName = "Futsal",
+                    CourtName = "Court 1",
+                    Username = "Moustafa",
+                    CenterName = "BBC Futsal Center",
+                    StartingBookingTime = DateTime.Now.AddHours(8),
+                    EndingBookingTime =  DateTime.Now.AddHours(9),
+                    BookingDate = System.DateTime.Now.Date,
+                    TotalPaymentAmount = 110
 
                 },new Booking
                 {
@@ -59,10 +81,23 @@ namespace SportsBookingApp.Helpers
                     CourtName = "Court 1",
                     Username = "Fadel",
                     CenterName = "Champions Center",
-                    StartingBookingTime = DateTime.Now,
-                    EndingBookingTime =  DateTime.Now.AddHours(2),
-                    BookingDate = System.DayOfWeek.Thursday,
-                    TotalPaymentAmount = 250
+                    //StartingBookingTime = DateTime.Now,
+                    StartingBookingTime = DateTime.Now.AddHours(2),
+                    EndingBookingTime =  DateTime.Now.AddHours(3),
+                    BookingDate = System.DateTime.Now.Date,
+                    TotalPaymentAmount = 110
+
+                },new Booking
+                {
+                    SportName = "Futsal",
+                    CourtName = "Court 2",
+                    Username = "Moustafa",
+                    CenterName = "Champions Center",
+                    //StartingBookingTime = DateTime.Now,
+                    StartingBookingTime = DateTime.Now.AddHours(2),
+                    EndingBookingTime =  DateTime.Now.AddHours(3),
+                    BookingDate = System.DateTime.Now.Date,
+                    TotalPaymentAmount = 110
 
                 }
             };
