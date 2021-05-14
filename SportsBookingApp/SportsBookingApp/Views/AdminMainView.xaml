@@ -22,7 +22,7 @@
                    VerticalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="29" TextColor="DarkMagenta"/>
-                <Image Source="user_photo_80"
+                <Image Source="user_sign_80"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="End"
                    Margin="10,0"
