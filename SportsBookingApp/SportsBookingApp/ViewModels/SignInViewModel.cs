@@ -143,8 +143,7 @@ namespace SportsBookingApp.ViewModels
                 if (Result)
                 {
                     Preferences.Set("CenterName", Username);
-                    await Application.Current.MainPage.Navigation.PushModalAsync(new AdminMainView());
-                    // await _navigationService.NavigateAsync("/CenterMainPage");
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new CenterTabbedView());
                 }
                 else
                     await Application.Current.MainPage.DisplayAlert("Error", "Invalid Username or Password", "OK");
