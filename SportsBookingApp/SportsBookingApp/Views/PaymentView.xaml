@@ -2,8 +2,148 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:SportsBookingApp.ViewModels"
              x:Class="SportsBookingApp.Views.PaymentView">
+
+
+    <!--Newest, NOT CHANGED-->
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Row="0" BackgroundColor="LightGray" Padding="10" HeightRequest="35" BorderColor="Black">
+                <Label Text="Booking Information" TextColor="Black" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </Frame>
+            
+
+            <StackLayout Grid.Row="1" Padding="15,20">
+
+                <Grid RowSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Text="User Name : " FontAttributes="Bold" TextColor="Black" FontSize="19" HorizontalOptions="Start"/>
+                    <Label Grid.Row="0" x:Name="username" TextColor="Black" FontSize="19" HorizontalOptions="End"/>
+
+                    <Label Grid.Row="1" Text="Center Name : " FontAttributes="Bold" TextColor="Black" FontSize="19" HorizontalOptions="Start"/>
+                    <Label Grid.Row="1" x:Name="centername"  TextColor="Black" FontSize="19" HorizontalOptions="EndAndExpand"/>
+
+                    <Label Grid.Row="2" Text="Court Name : " FontAttributes="Bold" TextColor="Black" FontSize="19" HorizontalOptions="Start"/>
+                    <Label Grid.Row="2" x:Name="courtname" TextColor="Black" HorizontalOptions="End" FontSize="19"/>
+
+                    <Label Grid.Row="3" Text="Booking Date : " FontAttributes="Bold" TextColor="Black" FontSize="19" HorizontalOptions="Start"/>
+                    <Label Grid.Row="3" Text="{Binding BookingDate, StringFormat='{}{0:D}'}" x:Name="bookingdate" TextColor="Black" HorizontalOptions="End" FontSize="19" />
+
+                    <Label Grid.Row="4" Text="Booking Time : " FontAttributes="Bold" TextColor="Black" FontSize="19" HorizontalOptions="Start"/>
+                    <Label Grid.Row="4" x:Name="bookingtime" TextColor="Black" HorizontalOptions="End" FontSize="19" />
+
+
+                    <Label Grid.Row="5" Text="Total Payment Amount : " FontAttributes="Bold" TextColor="Black" FontSize="21" HorizontalOptions="Start"/>
+                    <Label Grid.Row="5" x:Name="totalpaymentamount" TextColor="Red" FontAttributes="Bold" HorizontalOptions="End" FontSize="22"/>
+
+                </Grid>
+                
+            </StackLayout>
+
+            <Frame Grid.Row="2" Margin="0,20" BackgroundColor="LightGray" Padding="10" HeightRequest="35" BorderColor="Black">
+                <Label Text="Enter Your Billing Information" TextColor="Black" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </Frame>
+
+            <StackLayout Grid.Row="3" Margin="5,0" >
+
+                <Image Source="master_card_img" HorizontalOptions="Center" HeightRequest="80"/>
+                
+                <!--
+                <Image Source="paypal.jpg" HorizontalOptions="Center" HeightRequest="60" Margin="0,-15,0,0"/>-->
+
+
+                <!--<Label Text="Name On Card : " FontAttributes="Bold" TextColor="Black" FontSize="20" Margin="15,20,0,0"/>
+                <Entry Placeholder="Name" Margin="10,-5,0,0"/>-->
+
+                <Label Text="Card Number : " FontAttributes="Bold" TextColor="Black" FontSize="20" Margin="15,10,0,0"/>
+                <Entry  x:Name="cardnumber" Placeholder="xxxxxxxxxxxxxxxx" MaxLength="16" Keyboard="Numeric" Margin="10,-5,0,0"/>
+
+                <Label Text="Expiry Year : " FontAttributes="Bold" TextColor="Black" FontSize="20" Margin="15,10,0,0"/>
+                <Entry x:Name="expiryYear" Placeholder="YYYY" MaxLength="4" Keyboard="Numeric" Margin="10,-5,0,0"/>
+
+                <Label Text="Expiry Month : " FontAttributes="Bold" TextColor="Black" FontSize="20" Margin="15,10,0,0"/>
+                <Entry x:Name="expirymonth" Placeholder="MM" MaxLength="2" Keyboard="Numeric" Margin="10,-5,0,0"/>
+
+                <Label Text="CVV : " FontAttributes="Bold" TextColor="Black" FontSize="20" Margin="15,10,0,0"/>
+                <Entry x:Name="cvv" Placeholder="xxx" MaxLength="3" Keyboard="Numeric" Margin="10,-5,0,0"/>
+
+            </StackLayout>
+
+
+            <!--Clicked="NewEventHandler"-->
+            <Button Grid.Row="4" Text="Confirm Booking" x:Name="NewEventHandler" BackgroundColor="LightBlue" CornerRadius="20" TextColor="Black" VerticalOptions="Center"/>
+        </Grid>
+
+    </ScrollView>
+
+</ContentPage>
+
+
+
+<!--<StackLayout Margin="30,20" Spacing="10" Orientation="Vertical">
+
+    <Label Text="User Name"/>
+    <Label x:Name="username"/>
+
+    <Label Text="Center Name"/>
+    <Label x:Name="centername"/>
+
+    <Label Text="Court Name"/>
+    <Label x:Name="courtname"/>
+
+    <Label Text="Booking Date"/>
+    <Label x:Name="bookingdate"/>
+
+    <Label Text="Booking Time"/>
+    <Label x:Name="bookingtime"/>
+
+
+    <Label Text="Total Payment Amount"/>
+    <Label x:Name="totalpaymentamount"/>
+
+
+
+
+    <Label Text="Card Number"/>
+    <Entry x:Name="cardnumber" Keyboard="Numeric" Text="4000000000003055"/>
+
+    <Label Text="Expiry Year"/>
+    <Entry x:Name="expiryYear" Keyboard="Numeric"/>
+
+    <Label Text="Expiry Month" />
+    <Entry x:Name="expirymonth" Keyboard="Numeric"/>
+
+    <Label Text="CVV"/>
+    <Entry x:Name="cvv" Keyboard="Numeric"/>
+
+    <Button BackgroundColor="Orange" CornerRadius="20" TextColor="Black" Clicked="NewEventHandler" Text="Confirm Booking" VerticalOptions="CenterAndExpand"/>
+
+    <Button BackgroundColor="Orange" CornerRadius="20" TextColor="Black" Clicked="NewEventHandler" Text="MakePayment" VerticalOptions="CenterAndExpand"/>
+            <Button BackgroundColor="Black" CornerRadius="20" TextColor="White" Clicked="GetCustomerInformationID" Text="GetCustomerbyID" VerticalOptions="CenterAndExpand"/>
+            <Button BackgroundColor="Black" CornerRadius="20" TextColor="White" Clicked="GetAllCustomerInformation" Text="GetAllCustomer" VerticalOptions="CenterAndExpand"/>
+            <Button BackgroundColor="Black" CornerRadius="20" TextColor="White" Clicked="GetRefundForSpecificTransaction" Text="Cancell Transaction" VerticalOptions="CenterAndExpand"/>
+            <Button BackgroundColor="Black" CornerRadius="20" TextColor="White" Clicked="GetRefundInformation" Text="Get Refund Information" VerticalOptions="CenterAndExpand"/>
+
+    </StackLayout> -->
     
-    <ContentPage.BindingContext>
+    
+<!--<ContentPage.BindingContext>
         <vm:PaymentViewModel/>
     </ContentPage.BindingContext>
 
@@ -167,5 +307,4 @@
 
         </ScrollView>
 
-    </ContentPage.Content>
-</ContentPage>
+    </ContentPage.Content> -->

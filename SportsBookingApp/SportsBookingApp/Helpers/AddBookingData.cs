@@ -15,8 +15,8 @@ namespace SportsBookingApp.Helpers
         public List<Booking> Bookings { get; set; }
 
 
-        /*
-        public AddBookingData(string sportName, string courtName, string userName, string centerName, DateTime startingBookingTime, DateTime endingBookingTime, DayOfWeek bookingDate, double totalPaymentAmount)
+        
+        public AddBookingData(string sportName, string courtName, string userName, string centerName, DateTime startingBookingTime, DateTime endingBookingTime, DateTime bookingDate, double totalPaymentAmount)
         {
             client = new FirebaseClient("https://demooo-fa47d-default-rtdb.firebaseio.com/");
             Bookings = new List<Booking>()
@@ -35,7 +35,7 @@ namespace SportsBookingApp.Helpers
                 }
             };
         }
-        */
+        
 
         public AddBookingData()
         {
@@ -123,6 +123,7 @@ namespace SportsBookingApp.Helpers
                     });
                 }
 
+                await Application.Current.MainPage.DisplayAlert("Successful booking", " Enjoy your time ", "OK");
             }
             catch (Exception ex)
             {

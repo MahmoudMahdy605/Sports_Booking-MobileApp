@@ -123,8 +123,14 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.1.0.514</Version>
+    </PackageReference>
     <PackageReference Include="FirebaseDatabase.net">
       <Version>4.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="Stripe.net">
+      <Version>39.49.0</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.CommunityToolkit">
       <Version>1.1.0</Version>
@@ -216,5 +222,32 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\more_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\master_card_img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gym_hall1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ping_pong_table1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ping_pong_table2.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\badminton_court1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\badminton_court2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\basketball_court1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\futsal_court2.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\futsal_court3.jpg" />
   </ItemGroup>
 </Project>

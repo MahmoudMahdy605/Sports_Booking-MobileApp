@@ -56,6 +56,21 @@ namespace SportsBookingApp.ViewModels
         }
 
         public ObservableCollection<Court> Courts { get; set; }
+
+        /*
+        private ObservableCollection<Court> _Courts { get; set; }
+        public ObservableCollection<Court> Courts
+        {
+            get { return _Courts; }
+            set
+            {
+                _Courts = value;
+                OnpropertyChanged();
+
+            }
+        }
+        */
+
         /*
         private ObservableCollection<Court> _Courts;
         public ObservableCollection<Court> Courts
@@ -69,10 +84,22 @@ namespace SportsBookingApp.ViewModels
             }
         }
         */
+        
         public ObservableCollection<Booking> Bookings { get; set; }
 
-        //public ObservableCollection<Booking> b { get; set; }
+        /*
+        private ObservableCollection<Booking> _Bookings { get; set; }
+        public ObservableCollection<Booking> Bookings
+        {
+            get { return _Bookings; }
+            set
+            {
+                _Bookings = value;
+                OnpropertyChanged();
 
+            }
+        }
+        */
         private string _CenterName;
         public string CenterName
         {
@@ -84,6 +111,7 @@ namespace SportsBookingApp.ViewModels
 
             }
         }
+
 
         private string _SelectedSportName;
         public string SelectedSportName
@@ -97,6 +125,57 @@ namespace SportsBookingApp.ViewModels
             }
         }
 
+        private async void GetCourtsAndBookings(string selectedCenterName, string selectedSportName, DateTime bookingsDate)
+        {
+            var Courtsdata = await new CourtDataService().GetCourtsDetailsBySportAndCenterAsync(selectedCenterName, selectedSportName);
+
+            Courts.Clear();
+            //b.Clear();
+            //Bookings.Clear();
+
+
+
+            foreach (var Courtitem in Courtsdata)
+            {
+                /*
+                return new ObservableCollection<CourtCopy>
+            {
+
+                new CourtCopy { CenterName = Courtitem.CenterName, SportName = Courtitem.SportName, SportID = Courtitem.SportID, CourtName = Courtitem.CourtName, MaxReservationATime = Courtitem.MaxReservationATime, CourtPaymentTimeScale = Courtitem.CourtPaymentTimeScale, CourtPaymentCostScale = Courtitem.CourtPaymentCostScale,
+                    BookingsCopyyy = new ObservableCollection<BookingsCopy>{ new BookingsCopy { Name = "Mahdy", Time = "04:00 PM", Amount = "RM 100" }, new BookingsCopy { Name = "Tahan", Time = "06:00 PM", Amount = "RM 150" }, new BookingsCopy { Name = "Gerald", Time = "07:00 PM", Amount = "RM 50" } } },
+
+            };
+                */
+
+
+                totalPerDay_ForBookingsTotalMoney = 0;
+
+
+
+                Bookings.Clear();
+                var Bookingsdata = await new BookingDataService().GetBookedSlotsItemsByCenterAndCourtAndDateAsync(selectedCenterName, Courtitem.CourtName, bookingsDate);
+                foreach (var Bookingitem in Bookingsdata)
+                {
+                    Bookings.Add(Bookingitem);
+
+                    //b.Add(Bookingitem);
+
+                    totalPerDay_ForBookingsTotalMoney += Bookingitem.TotalPaymentAmount;
+
+                }
+
+                //TotalRevenueForTheCourtPerDay.Add(totalPerDay_ForBookingsTotalMoney);
+
+
+                Courtitem.TotalRevenueForTheCourtPerDay = totalPerDay_ForBookingsTotalMoney;
+                //Courtitem.BookingMember.Clear();
+                Courtitem.BookingMember = Bookings;
+                Courts.Add(Courtitem);
+
+
+            }
+
+        }
 
         //public ObservableCollection<double> TotalRevenueForTheCourtPerDay { get; set; }
         /*
@@ -161,57 +240,7 @@ namespace SportsBookingApp.ViewModels
 
         }
         */
-        private async void GetCourtsAndBookings(string selectedCenterName, string selectedSportName, DateTime bookingsDate)
-        {
-            var Courtsdata = await new CourtDataService().GetCourtsDetailsBySportAndCenterAsync(selectedCenterName, selectedSportName);
 
-            Courts.Clear();
-            //b.Clear();
-            //Bookings.Clear();
-
-
-
-            foreach (var Courtitem in Courtsdata)
-            {
-                /*
-                return new ObservableCollection<CourtCopy>
-            {
-
-                new CourtCopy { CenterName = Courtitem.CenterName, SportName = Courtitem.SportName, SportID = Courtitem.SportID, CourtName = Courtitem.CourtName, MaxReservationATime = Courtitem.MaxReservationATime, CourtPaymentTimeScale = Courtitem.CourtPaymentTimeScale, CourtPaymentCostScale = Courtitem.CourtPaymentCostScale,
-                    BookingsCopyyy = new ObservableCollection<BookingsCopy>{ new BookingsCopy { Name = "Mahdy", Time = "04:00 PM", Amount = "RM 100" }, new BookingsCopy { Name = "Tahan", Time = "06:00 PM", Amount = "RM 150" }, new BookingsCopy { Name = "Gerald", Time = "07:00 PM", Amount = "RM 50" } } },
-
-            };
-                */
-
-
-                totalPerDay_ForBookingsTotalMoney = 0;
-
-
-
-                Bookings.Clear();
-                var Bookingsdata = await new BookingDataService().GetBookedSlotsItemsByCenterAndCourtAndDateAsync(selectedCenterName, Courtitem.CourtName, bookingsDate);
-                foreach (var Bookingitem in Bookingsdata)
-                {
-                    Bookings.Add(Bookingitem);
-
-                    //b.Add(Bookingitem);
-
-                    totalPerDay_ForBookingsTotalMoney += Bookingitem.TotalPaymentAmount;
-
-                }
-
-                //TotalRevenueForTheCourtPerDay.Add(totalPerDay_ForBookingsTotalMoney);
-
-
-                Courtitem.TotalRevenueForTheCourtPerDay = totalPerDay_ForBookingsTotalMoney;
-                //Courtitem.BookingMember.Clear();
-                Courtitem.BookingMember = Bookings;
-                Courts.Add(Courtitem);
-
-
-            }
-
-        }
         /*
         public class CourtCopy
         {

@@ -8,8 +8,12 @@
              x:Name="root">
 
 
+
+    <!--Newest-->
+
     <ContentPage.Content>
-        <Grid BackgroundColor="#F3F5F9" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <!--BackgroundColor="#F3F5F9"-->
+        <Grid BackgroundColor="Wheat" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="180"/>
                 <RowDefinition Height="Auto"/>
@@ -126,8 +130,8 @@ BindableLayout.ItemsSource="{Binding Bookings}"
         </CollectionView> -->
 
 
-
-            <CollectionView  BackgroundColor="Blue" EmptyView="Items Source is null or unvalid name/REPRESENTATION" Grid.Row="2" Margin="22" HorizontalOptions="End" VerticalOptions="FillAndExpand"
+            <!--EmptyView="Items Source is null or unvalid name/REPRESENTATION"-->
+            <CollectionView  Grid.Row="2" Margin="22" HorizontalOptions="End" VerticalOptions="FillAndExpand"
                         SelectionMode="None" ItemsSource="{Binding Courts}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
@@ -177,7 +181,8 @@ BindableLayout.ItemsSource="{Binding Bookings}"
 
                                         <!--BookingMember is a list not an observablecollection-->
                                         <!--BindableLayout.ItemsSource="{Binding BindingContext.Taches1 , Source={x:Reference MyPage}}" ... BindableLayout.ItemsSource="{Binding Bookings}" .... BindableLayout.ItemsSource="{Binding Source={x:Reference root},Path=BindingContext.Bookings}" ... BindableLayout.ItemsSource="{Binding BookingMember}"-->
-                                        <StackLayout BackgroundColor="Salmon" BindableLayout.EmptyView="Items Source is null or unvalid name/REPRESENTATION" BindableLayout.ItemsSource="{Binding Source={x:Reference root},Path=BindingContext.BookingMember}" HorizontalOptions="Start" VerticalOptions="Center" Margin="20,0,0,20">
+                                        <!--BindableLayout.EmptyView="Items Source is null or unvalid name/REPRESENTATION"-->
+                                        <StackLayout BindableLayout.EmptyView="No Bookings" BindableLayout.ItemsSource="{Binding Source={x:Reference root},Path=BindingContext.BookingMember}" HorizontalOptions="Start" VerticalOptions="Center" Margin="20,0,0,20">
                                             <BindableLayout.ItemTemplate>
                                                 <DataTemplate>
                                                     <Grid>

@@ -30,6 +30,8 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentCostScale = 30,
                     CenterName = "Champions Center",
 
+                    CourtImage = "ping_pong_table1.jpg"
+
 
                     // may need to add bokmemb & totrev for all courts
 
@@ -43,7 +45,9 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =1,
                     CourtPaymentCostScale = 30,
-                    CenterName = "Champions Center"
+                    CenterName = "Champions Center",
+
+                    CourtImage = "ping_pong_table2.jpg "
                 },new Court
                 {
                     CourtID = 1,
@@ -53,7 +57,9 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =1,
                     CourtPaymentCostScale = 35,
-                    CenterName = "Stars Center"
+                    CenterName = "Stars Center",
+
+                    CourtImage = "ping_pong_table1.jpg"
                 },new Court
                 {
                     CourtID = 1,
@@ -63,7 +69,9 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =1,
                     CourtPaymentCostScale = 110,
-                    CenterName = "BBC Futsal Center"
+                    CenterName = "BBC Futsal Center",
+
+                    CourtImage = "futsal_court3.jpg"
                 },new Court
                 {
                     CourtID = 2,
@@ -73,7 +81,9 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =1,
                     CourtPaymentCostScale = 110,
-                    CenterName = "BBC Futsal Center"
+                    CenterName = "BBC Futsal Center",
+
+                    CourtImage = "futsal_court2.jpg"
                 },new Court
                 {
                     CourtID =3,
@@ -83,7 +93,9 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =1,
                     CourtPaymentCostScale = 110,
-                    CenterName = "BBC Futsal Center"
+                    CenterName = "BBC Futsal Center",
+
+                    CourtImage = "futsal_court3.jpg"
                 },new Court
                 {
                     CourtID = 1,
@@ -93,7 +105,9 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =1,
                     CourtPaymentCostScale = 100,
-                    CenterName = "Champions Center"
+                    CenterName = "Champions Center",
+
+                    CourtImage = "futsal_court3.jpg "
                 },new Court
                 {
                     CourtID = 2,
@@ -103,7 +117,9 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =1,
                     CourtPaymentCostScale = 100,
-                    CenterName = "Champions Center"
+                    CenterName = "Champions Center",
+
+                    CourtImage = "futsal_court2.jpg"
                 },new Court
                 {
                     CourtID = 1,
@@ -113,7 +129,9 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =1,
                     CourtPaymentCostScale = 40,
-                    CenterName = "Stars Center"
+                    CenterName = "Stars Center",
+
+                    CourtImage = "badminton_court1.jpg "
                 },new Court
                 {
                     CourtID = 2,
@@ -123,7 +141,9 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =1,
                     CourtPaymentCostScale = 40,
-                    CenterName = "Stars Center"
+                    CenterName = "Stars Center",
+
+                    CourtImage = "badminton_court2.jpg "
                 },new Court
                 {
                     CourtID = 1,
@@ -133,7 +153,9 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =15,
                     CourtPaymentCostScale = 5,
-                    CenterName = "Stars Center"
+                    CenterName = "Stars Center",
+
+                    CourtImage = "gym_hall1.jpg"
                 },new Court
                 {
                     CourtID = 1,
@@ -143,7 +165,9 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =1,
                     CourtPaymentCostScale = 100,
-                    CenterName = "Champions Center"
+                    CenterName = "Champions Center",
+
+                    CourtImage = "basketball_court1.jpg"
                 },new Court
                 {
                     CourtID = 2,
@@ -153,7 +177,9 @@ namespace SportsBookingApp.Helpers
                     CourtPaymentTimeScale = "Hour",
                     MaxReservationATime =1,
                     CourtPaymentCostScale = 100,
-                    CenterName = "Champions Center"
+                    CenterName = "Champions Center",
+
+                    CourtImage = "basketball_court1.jpg"
                 }
             };
         }
@@ -175,6 +201,7 @@ namespace SportsBookingApp.Helpers
                         CourtPaymentCostScale = court.CourtPaymentCostScale,
                         CenterName = court.CenterName,
 
+                        CourtImage = court.CourtImage,
 
                         BookingMember = court.BookingMember,
                         TotalRevenueForTheCourtPerDay = court.TotalRevenueForTheCourtPerDay

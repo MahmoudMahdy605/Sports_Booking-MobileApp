@@ -4,17 +4,19 @@
              x:Class="SportsBookingApp.Views.SignInView"
              NavigationPage.HasNavigationBar="False">
 
+    <!--Newest-->
+    
     <ContentPage.BindingContext>
         <vm:SignInViewModel/>
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="White">
+        <StackLayout BackgroundColor="Bisque">
             <Frame VerticalOptions="Start" HorizontalOptions="FillAndExpand" HeightRequest="330" Padding="0">
                 <Image Source="app_img1" Aspect="AspectFit" Margin="0,-45,0,0" BackgroundColor="#e05552"/>
             </Frame>
-            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,-100,0,0">
-                <Frame BackgroundColor="White" HasShadow="True"
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,-80,0,0">
+                <Frame BackgroundColor="WhiteSmoke" HasShadow="True" BorderColor="Black"
                    Padding="20,25,20,0" CornerRadius="40" WidthRequest="240">
                     <StackLayout Spacing="20" VerticalOptions="CenterAndExpand">
                         <Label Text="LOG IN" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
@@ -37,8 +39,8 @@
                             </Grid>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" Margin="0,30">
-                            <Button Text="Login as User" Command="{Binding SignInCommandAsUser}" BackgroundColor="Blue" CornerRadius="20" TextColor="White"/>
-                            <Button Text="Login as Admin" Command="{Binding SignInCommandAsAdmin}" BackgroundColor="LightBlue" CornerRadius="20" TextColor="White"/>
+                            <Button Text="Login as User" Command="{Binding SignInCommandAsUser}" BackgroundColor="Blue" CornerRadius="20" WidthRequest="125" TextColor="White" Margin="-11,1,-2,0"/>
+                            <Button Text="Login as Admin" Command="{Binding SignInCommandAsAdmin}" BackgroundColor="LightBlue" CornerRadius="20" TextColor="Black"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -54,4 +56,5 @@
         </StackLayout>
 
     </ContentPage.Content>
+
 </ContentPage>

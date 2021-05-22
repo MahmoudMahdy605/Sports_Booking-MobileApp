@@ -4,6 +4,8 @@
              x:Class="SportsBookingApp.Views.CentersView">
 
 
+    <!--Newest, need to add tahan code-->
+    
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -17,8 +19,8 @@
             </Frame>
             <Label x:Name="SportName" Grid.Row="1" HeightRequest="40" Text="{Binding SelectedSport.SportName }" TextColor="White" FontSize="30"   
                    HorizontalOptions="Start" VerticalOptions="Center" Margin="20,0,0,0"/>
-            
-            <pancake:PancakeView Grid.Row="2" Padding="20,13,20,0" CornerRadius="25,25,0,0">
+
+            <pancake:PancakeView Grid.Row="2" Padding="20,13,20,0" CornerRadius="25,25,0,0" BackgroundColor="Wheat">
                 <Grid RowSpacing="15">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

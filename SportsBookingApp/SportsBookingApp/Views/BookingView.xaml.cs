@@ -80,7 +80,12 @@ namespace SportsBookingApp.Views
             // var checkconflictbooking = VerifyAvailabilityOfBookingSlotAsync(c.CenterName, SelectedBookingDate.Date.DayOfWeek, SelectedCourt.SelectedItem.ToString(), SelectedStartingBookingTime.Time, SelectedEndingBookingTime.Time);
 
 
-
+            // Do chack time quarters/halves.
+            // Do chack time quarters/halves.
+            // Do chack time quarters/halves.
+            // Do chack time quarters/halves.
+            // Do chack time quarters/halves.
+            // Do chack time quarters/halves.
 
             if (VerifyTimeSequence (SelectedStartingBookingTime.Time, SelectedEndingBookingTime.Time) == true )
             {
@@ -95,16 +100,16 @@ namespace SportsBookingApp.Views
                         if (Noconflictexists == true)
                         {
 
-                            await Application.Current.MainPage.DisplayAlert("Nice", " booking time is not conflicting", "OK"); // successful booking time
+                            await Application.Current.MainPage.DisplayAlert("Booking time is available ", " Proceed with payment", "OK"); // successful booking time
+
+                            
+                            double paymentCostScale = double.Parse(CourtPaymentCostScale.Text);
+                            double selectedTimeDuration = ((int)SelectedEndingBookingTime.Time.TotalMinutes - (int)SelectedStartingBookingTime.Time.TotalMinutes);
+                            double TotalPaymentAmount = ( paymentCostScale * selectedTimeDuration ) / 60.0 ;
 
 
-                            await Navigation.PushModalAsync(new PaymentView());
-                            // navigate to paymentview with passing parameters;
-                            // navigate to paymentview with passing parameters;
-                            // navigate to paymentview with passing parameters;
-                            // navigate to paymentview with passing parameters;
-                            // navigate to paymentview with passing parameters;
-
+                            await Navigation.PushModalAsync(new PaymentView(SelectedBookingDate.Date, c.CenterName, s, SelectedCourt.SelectedItem.ToString(), SelectedStartingBookingTime.Time.ToString(), SelectedEndingBookingTime.Time.ToString(), TotalPaymentAmount));
+                            
                         }
                         else await Application.Current.MainPage.DisplayAlert("Conflict booking", " booking time is conflicting", "Select another availabile time"); //  booking time already exists;
 

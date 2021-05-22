@@ -2,9 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="SportsBookingApp.Views.MyBookingHistoryView">
+
+    
+    
+    <!--Newest-->
     
     <ContentPage.Content>
-        <Grid BackgroundColor="#F3F5F9" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <!--BackgroundColor="#F3F5F9"-->
+        <Grid BackgroundColor="Wheat" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="180"/>
                 <RowDefinition Height="Auto"/>
@@ -27,7 +32,7 @@
             </pv:PancakeView>
 
             <CollectionView Grid.Row="2" Margin="22" HorizontalOptions="End" VerticalOptions="FillAndExpand"
-                        SelectionMode="None" ItemsSource="{Binding MyBookings}">
+                        SelectionMode="None" EmptyView="You dont have bookings on this date" ItemsSource="{Binding MyBookings}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
                 </CollectionView.ItemsLayout>
@@ -36,10 +41,7 @@
                         <pv:PancakeView BackgroundColor="LightGray" VerticalOptions="StartAndExpand" 
                                     HorizontalOptions="FillAndExpand">
                             <Grid VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
+                                
                                 <BoxView BackgroundColor="Crimson"  WidthRequest="3" HorizontalOptions="Start"
                                      VerticalOptions="FillAndExpand"/>
                                 <Grid Padding="20">
@@ -47,6 +49,7 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
+                                    
                                     <StackLayout Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center">
                                         <StackLayout>
                                             <Label Text="{Binding CenterName}" VerticalOptions="Center" TextColor="#2F3246" FontAttributes="Bold" FontSize="16"/>
@@ -84,7 +87,11 @@
                                         </Label>-->
                                         
                                     </StackLayout>
-                                    <Label Grid.Column="1" Text="{Binding TotalPaymentAmount, StringFormat='RM {0} '}" VerticalOptions="Center" HorizontalOptions="End" TextColor="OrangeRed" FontSize="18" FontAttributes="Bold" />
+                                    
+                                    <StackLayout Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                        <Label Text="{Binding TotalPaymentAmount, StringFormat='RM {0} '}" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" TextColor="OrangeRed" FontSize="18" FontAttributes="Bold" />
+                                    </StackLayout>
+                                    
                                 </Grid>
 
                             </Grid>

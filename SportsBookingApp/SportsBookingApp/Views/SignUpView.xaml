@@ -3,17 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:SportsBookingApp.ViewModels"
              x:Class="SportsBookingApp.Views.SignUpView">
 
+    
+    <!--Newest-->
+    
     <ContentPage.BindingContext>
         <vm:SignUpViewModel/>
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="White">
+        <StackLayout BackgroundColor="Bisque">
             <Frame VerticalOptions="Start" HorizontalOptions="FillAndExpand" HeightRequest="330" Padding="0">
                 <Image Source="app_img1" Aspect="AspectFit" Margin="0,-45,0,0" BackgroundColor="#e05552"/>
             </Frame>
             <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,-80,0,0">
-                <Frame BackgroundColor="White" HasShadow="True"
+                <Frame BackgroundColor="White" HasShadow="True" BorderColor="Black"
                    Padding="20,25,20,0" CornerRadius="40" WidthRequest="240">
                     <StackLayout Spacing="20" VerticalOptions="CenterAndExpand">
                         <Label Text="Register" TextColor="Black" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
@@ -58,4 +61,5 @@
         </StackLayout>
 
     </ContentPage.Content>
+
 </ContentPage>

@@ -16,6 +16,8 @@ namespace SportsBookingApp.Models
         public string CourtPaymentTimeScale { get; set; }
         public double CourtPaymentCostScale { get; set; }
 
+        public string CourtImage { get; set; }
+
 
 
         public ObservableCollection<Booking> BookingMember { get; set; }

@@ -32,6 +32,8 @@ namespace SportsBookingApp.Services
                     MaxReservationATime = f.Object.MaxReservationATime,
                     CenterName = f.Object.CenterName,
 
+                    CourtImage = f.Object.CourtImage,
+
 
                     BookingMember = f.Object.BookingMember,
                     TotalRevenueForTheCourtPerDay = f.Object.TotalRevenueForTheCourtPerDay

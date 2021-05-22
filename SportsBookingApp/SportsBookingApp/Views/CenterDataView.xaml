@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportsBookingApp.Views.CenterDataView">
+
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <StackLayout Orientation="Horizontal" BackgroundColor="White">
+                <Image Source="app_logo"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="-5,0,0,-6" Aspect="AspectFill"
+                   WidthRequest="85" HeightRequest="85"/>
+                <Label Text="Reserve It"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="29" TextColor="DarkMagenta"/>
+                <Image Source="user_sign_80"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="End"
+                   Margin="0,0,20,0"
+                   WidthRequest="40" HeightRequest="40"/>
+            </StackLayout>
+            
+            
+            
+            <Grid BackgroundColor="White" Padding="2,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="230"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <StackLayout Grid.Row="0" BackgroundColor="Beige">
+                        
+                        <Label VerticalOptions="Center" HorizontalOptions="Start" Padding="8"
+                       TextColor="DarkBlue" FontSize="30" FontAttributes="Bold">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text=" Welcome "/>
+                                    <Span Text="{Binding CenterName}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        
+                        <Label Text="Select Period" FontSize="25" FontAttributes="Bold" TextColor="Brown" HorizontalOptions="Center" VerticalOptions="Center" Margin="-5,20,0,0"/>
+                        
+                        <Label Text="From" FontSize="17" FontAttributes="Bold" Opacity=".7" HorizontalOptions="Start" Margin="68,20,0,0"/>
+
+                        <DatePicker x:Name="StartingBookingDate" VerticalOptions="Start" FontAttributes="Bold" HorizontalOptions="Start" Margin="40,5,0,0"/>
+                        
+                        <Label Text="-----------" HorizontalOptions="Center" Margin="0,-35,0,20"/>
+
+                        <DatePicker x:Name="EndingBookingDate" VerticalOptions="End" FontAttributes="Bold" HorizontalOptions="End" Margin="0,-63,40,0"/>
+                        
+                        <Label Text="To" FontSize="17" FontAttributes="Bold" Opacity=".7" HorizontalOptions="End" Margin="-20,-85,80,0"/>
+                        
+                    </StackLayout>
+                </Grid>
+                    
+                <Grid Grid.Row="1">
+                    <Button Text="View Data" Clicked="ViewData_Clicked"  FontAttributes="Bold" TextColor="White" FontSize="17" CornerRadius="10" 
+                        BackgroundColor="DarkMagenta"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Grid>
+                
+                <Grid Grid.Row="2" BackgroundColor="Beige" Padding="20,15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Text="Total Revenue : " FontSize="25" FontAttributes="Bold" TextColor="DarkOliveGreen" HorizontalOptions="Start" />
+                    <Label Grid.Row="0" Text="{Binding TotalRevenue, StringFormat='RM {0} '}" FontSize="25" FontAttributes="Bold" TextColor="Red" HorizontalOptions="End" />
+                    <Label Grid.Row="1" Text="Total No. of Bookings : " FontSize="25" TextColor="Brown"  FontAttributes="Bold" HorizontalOptions="Start" />
+                    <Label Grid.Row="1" Text="{Binding TotalNoOfBookings}" FontSize="25" FontAttributes="Bold" TextColor="Red" HorizontalOptions="End" />
+                        
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

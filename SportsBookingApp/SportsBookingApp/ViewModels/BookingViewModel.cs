@@ -27,7 +27,7 @@ namespace SportsBookingApp.ViewModels
 
 
             OpenGoogleMapLocationCommand = new Command(async () => await OpenGoogleMapLocationCommandAsync(SelectedCenter));
-            BookingCommand = new Command(async () => await BookingCommandAsync());
+            //BookingCommand = new Command(async () => await BookingCommandAsync());
             GoBack = new Command(async () => await GoBackAsync());
 
 
@@ -79,7 +79,7 @@ namespace SportsBookingApp.ViewModels
 
 
             OpenGoogleMapLocationCommand = new Command(async () => await OpenGoogleMapLocationCommandAsync(SelectedCenter));
-            BookingCommand = new Command(async () => await BookingCommandAsync());
+            //BookingCommand = new Command(async () => await BookingCommandAsync());
             GoBack = new Command(async () => await GoBackAsync());
 
 
@@ -265,7 +265,7 @@ namespace SportsBookingApp.ViewModels
     
 
 
-        public Command BookingCommand { get; set; }
+        //public Command BookingCommand { get; set; }
         public Command GoBack { get; set; }
         /*
         private DelegateCommand _bookingCommand;
@@ -276,14 +276,18 @@ namespace SportsBookingApp.ViewModels
 
         //async void ExecuteBookingCommand();
 
+        /*
         private async Task BookingCommandAsync()
         {
 
             //await Application.Current.MainPage.DisplayAlert("Well done", "Well done", "OK");
-            await Application.Current.MainPage.Navigation.PushModalAsync(new PaymentView() );
-            
+
+            //await Application.Current.MainPage.Navigation.PushModalAsync(new PaymentView() );
+            //await Navigation.PushModalAsync(new PaymentView(SelectedBookingDate.Date, c.CenterName, s, SelectedCourt.SelectedItem.ToString(), SelectedStartingBookingTime.Time, SelectedEndingBookingTime.Time, TotalPaymentAmount));
+
+
             // await _navigationService.NavigateAsync("PaymentView");
-            /*
+            
             if (IsBusy) return;
 
             try
@@ -307,9 +311,10 @@ namespace SportsBookingApp.ViewModels
             {
                 IsBusy = false;
             }
-            */
-
+            
+        
         }
+    */
         /*
         private DelegateCommand _goBack;
 

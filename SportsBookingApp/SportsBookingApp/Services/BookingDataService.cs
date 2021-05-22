@@ -87,6 +87,36 @@ namespace SportsBookingApp.Services
             return BookingsByUserNameAndDate;
         }
 
+        public async Task<double> GetTotalRevenuesBetweenDatesAsync(string centerName, DateTime startingBookingDate, DateTime endingBookingDate)
+        {
+
+            double TotalRevenuesBetweenDates = 0;
+            var items = (await GetBookingsItemsAsync()).Where(p => p.CenterName == centerName).Where(p => p.BookingDate.Date >= startingBookingDate.Date)
+                .Where(p => p.BookingDate.Date <= endingBookingDate.Date).ToList();
+
+            foreach (var item in items)
+            {
+                TotalRevenuesBetweenDates += item.TotalPaymentAmount;
+            }
+
+            return TotalRevenuesBetweenDates;
+        }
+
+        public async Task<int> GetTotalNoOfBookingsBetweenDatesAsync(string centerName, DateTime startingBookingDate, DateTime endingBookingDate)
+        {
+
+            int TotalNoOfBookingsBetweenDates = 0;
+            var items = (await GetBookingsItemsAsync()).Where(p => p.CenterName == centerName).Where(p => p.BookingDate.Date >= startingBookingDate.Date)
+                .Where(p => p.BookingDate.Date <= endingBookingDate.Date).ToList();
+
+            foreach (var item in items)
+            {
+                TotalNoOfBookingsBetweenDates += 1;
+            }
+
+            return TotalNoOfBookingsBetweenDates;
+        }
+
 
     }
 

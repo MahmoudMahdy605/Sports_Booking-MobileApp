@@ -3,19 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:SportsBookingApp.ViewModels"
              x:Class="SportsBookingApp.Views.AdminMainView">
 
+
+    <!--Newest-->
+    
+    
     <ContentPage.BindingContext>
         <vm:AdminMainViewModel/>
     </ContentPage.BindingContext>
 
 
     <ContentPage.Content>
-        <StackLayout>
 
-            <StackLayout Orientation="Horizontal">
+        <StackLayout BackgroundColor="Wheat">
+
+            <StackLayout Orientation="Horizontal" BackgroundColor="White">
                 <Image Source="app_logo"
                    VerticalOptions="Center"
                    HorizontalOptions="Start"
-                   Margin="-20,0,0,0" Aspect="AspectFill"
+                   Margin="-5,0,0,-6" Aspect="AspectFill"
                    WidthRequest="85" HeightRequest="85"/>
                 <Label Text="Reserve It"
                    HorizontalOptions="CenterAndExpand"
@@ -25,7 +30,7 @@
                 <Image Source="user_sign_80"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="End"
-                   Margin="10,0"
+                   Margin="0,0,20,0"
                    WidthRequest="40" HeightRequest="40"/>
             </StackLayout>
 
@@ -33,7 +38,7 @@
             <Grid BackgroundColor="White" Padding="20,7,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <StackLayout Grid.Row="0">
@@ -56,20 +61,24 @@
                             HorizontalScrollBarVisibility="Never" 
                             SelectionChanged="SportsCollectionView_SelectionChanged"
                             SelectionMode="Single">
+                    
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" Span="2"
-                                         VerticalItemSpacing="6"/>
+                                         VerticalItemSpacing="0"/>
                     </CollectionView.ItemsLayout>
+                    
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <ContentView Padding="10,0">
-                                <StackLayout Spacing="15" BackgroundColor="White" >
-                                    <Frame HasShadow="True" HeightRequest="70" WidthRequest="70" Padding="0" CornerRadius="10" >
-                                        <Frame Padding="10" BackgroundColor="White">
-                                            <Image Source="{Binding SportIcon}" Aspect="Fill" />
+                            <ContentView Padding="45,10" >
+                                <StackLayout Spacing="13">
+                                    <Frame HasShadow="True"  Padding="0" CornerRadius="10" >
+                                        <Frame WidthRequest="50" HeightRequest="80" Padding="10" >
+                                            <Image Source="{Binding SportIcon}" Aspect="AspectFit" />
                                         </Frame>
                                     </Frame>
+                                    
                                     <Label Text="{Binding SportName}" HorizontalTextAlignment="Center" TextColor="Black"/>
+                                    
                                 </StackLayout>
                             </ContentView>
                         </DataTemplate>

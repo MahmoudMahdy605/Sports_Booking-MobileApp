@@ -12,23 +12,23 @@ namespace SportsBookingApp
         {
             InitializeComponent();
 
-            /*
+            
             string uname = Preferences.Get("UserName", String.Empty);
             if (String.IsNullOrEmpty(uname))
                 MainPage = new NavigationPage( new SignInView() );
             
             else MainPage = new NavigationPage(new MainTabbedView());
-            */
-
-            //MainPage = new ManageAppDataView();
-
             
+
+            //MainPage = new SignInView();
+
+            /*
             string uname = Preferences.Get("CenterName", String.Empty);
             if (String.IsNullOrEmpty(uname))
                 MainPage = new NavigationPage(new SignInView());
 
-            else MainPage = new NavigationPage(new AdminMainView());
-            
+            else MainPage = new NavigationPage(new CenterTabbedView());
+            */
         }
 
         protected override void OnStart()
