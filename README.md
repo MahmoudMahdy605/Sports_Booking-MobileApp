@@ -3,11 +3,10 @@
 A cross-platform mobile app. Coded in c# and Xamarin.forms using Visual Studio 2019.
 
 This project is still under progress and coded for our Integrated Design Project (IDP) course, at International islamic university Malaysia (IIUM).
-Project duration is from 10/April/2021 until 10/June/2021.
+Project duration is from 10/April/2021 until 10/June/2021.<br />
 
-<br />
-*Project contributors:
-<br />
+
+*Project contributors:<br />
 
 1- Mahmoud Fadel ( Project leader ): responsible for all back-end and firebase database operations. And 30% of front-end code using xaml.
 
@@ -18,9 +17,8 @@ Project duration is from 10/April/2021 until 10/June/2021.
 4- Tasnimul Hasan: responsible 30% of front-end code using xaml.
 
 
-<br />
-*For now ( 23/May/2021) Application working Functionalities:
-<br />
+
+*For now ( 23/May/2021) Application working Functionalities:<br />
 
 1- Clients ability to View various sport centers, facilities and their available slots. 
 
@@ -28,11 +26,11 @@ Project duration is from 10/April/2021 until 10/June/2021.
 
 3- Pay online using credit card. And get refund ( still ablicable for admins, not clients ).
 
-4- Sport Center's admin can view booking history of all center's facilities and view some data analysis for own center.
+4- Sport Center's admin can view booking history of all center's facilities and view some data analysis for own center.<br />
 
 
-<br />
-*In case you like to run our project: 
+
+*In case you like to run our project:<br /> 
 
 To login in as USER ====> username: m    , password : m
 
