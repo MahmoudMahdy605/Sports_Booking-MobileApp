@@ -33,7 +33,6 @@ Project duration is from 10/April/2021 until 10/June/2021.
 
 <br />
 *In case you like to run our project: 
-<br />
 
 To login in as USER ====> username: m    , password : m
 
