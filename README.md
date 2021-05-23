@@ -6,7 +6,8 @@ This project is still under progress and coded for our Integrated Design Project
 Project duration is from 10/April/2021 until 10/June/2021.<br />
 
 <br />
-*Project contributors:<br />
+*Project contributors:
+<br />
 
 1- Mahmoud Fadel ( Project leader ): responsible for all back-end and firebase database operations. And 30% of front-end code using xaml.
 
