@@ -1,15 +1,32 @@
-# Sports__Booking_App
-Our IDP project - Please don't update on this repository ( just open it by following the first 4 minutes of this video - ( https://www.youtube.com/watch?v=Y1fBfrcRMEs&amp;t=3s ) " you can access all files" , then using your visual studio just edit your specific files, after that you can send me the updated codes as word files on whatsapp OR by creating a new Github repository on your account ).
+# Sports__Booking_App ( still under progress )
 
-Until now we have 10 View ( divide them between Moustafa and Tahan ). all of them need UI edit except these 2 "MainTabbedView & ManageAppDataView". so 4 views to each one of you.
+A cross-platform mobile app. Coded in c# and Xamarin.forms using Visual Studio 2019.
 
-To login in as USER ====> username: Moustafa    , password : m
+This project is still under progress and coded for our Integrated Design Project (IDP) course, at International islamic university Malaysia (IIUM).
+Project duration is from 10/April/2021 until 10/June/2021.
+
+
+*Project contributers:
+
+1- Mahmoud Fadel ( Project leader ): responsible for all back-end and firebase database operations. And 30% of front-end code using xaml.
+2- Moustafa Mahdy: responsible for online payment process and 40% of front-end code using xaml.
+3- Mahmoud Mahdy: responsible for UI design and contribute in online payment process.
+4- Tasnimul Hasan: responsible 30% of front-end code using xaml.
+
+
+*For now ( 23/May/2021) Application working Functionalities:
+
+1- Clients ability to View various sport centers, facilities and their available slots. 
+2- Clients ability to book preferred sport slot. 
+3- Pay online using credit card. And get refund ( still ablicable for admins, not clients ).
+4- Sport Center's admin can view booking history of all center's facilities and view some data analysis for own center.
+
+
+*In case you like to run our project: 
+
+To login in as USER ====> username: m    , password : m
 
 To login in as ADMIN ====> username: BBC Futsal Center    , password : 0000
 
-For pages ( AdminBookingHistoryView  &  BookingHistoryView "this one done by Tahan, but I didnt add it to project yet" ) you need to run them directly from app.xaml.cs ( MainPage = new NAMEOFTHEPAGE(); ). Bcs they are not connected with binding data yet. 
 
-For other pages you need to run the project and navigate to them, in order to see the view with data. 
-
-Ignory backend messages appear in the screen of the app.
 
