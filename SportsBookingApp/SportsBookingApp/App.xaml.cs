@@ -18,6 +18,7 @@ namespace SportsBookingApp
                 MainPage = new NavigationPage( new SignInView() );
             
             else MainPage = new NavigationPage(new MainTabbedView());
+            
             */
 
             MainPage = new SignInView();
