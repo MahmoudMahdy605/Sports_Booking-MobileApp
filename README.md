@@ -5,8 +5,8 @@ A cross-platform mobile app. Coded in c# and Xamarin.forms using Visual Studio 2
 This project is still under progress and coded for our Integrated Design Project (IDP) course, at International islamic university Malaysia (IIUM).
 Project duration is from 10/April/2021 until 10/June/2021.
 
-_
-_
+<br />
+<br />
 *Project contributors:
 
 1- Mahmoud Fadel ( Project leader ): responsible for all back-end and firebase database operations. And 30% of front-end code using xaml.
