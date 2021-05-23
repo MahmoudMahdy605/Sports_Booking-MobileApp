@@ -6,7 +6,6 @@ This project is still under progress and coded for our Integrated Design Project
 Project duration is from 10/April/2021 until 10/June/2021.
 
 <br />
-<br />
 *Project contributors:
 
 1- Mahmoud Fadel ( Project leader ): responsible for all back-end and firebase database operations. And 30% of front-end code using xaml.
@@ -18,7 +17,7 @@ Project duration is from 10/April/2021 until 10/June/2021.
 4- Tasnimul Hasan: responsible 30% of front-end code using xaml.
 
 
-
+<br />
 *For now ( 23/May/2021) Application working Functionalities:
 
 1- Clients ability to View various sport centers, facilities and their available slots. 
@@ -30,7 +29,7 @@ Project duration is from 10/April/2021 until 10/June/2021.
 4- Sport Center's admin can view booking history of all center's facilities and view some data analysis for own center.
 
 
-
+<br />
 *In case you like to run our project: 
 
 To login in as USER ====> username: m    , password : m
