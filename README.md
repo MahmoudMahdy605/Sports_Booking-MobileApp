@@ -21,6 +21,7 @@ Project duration is from 10/April/2021 until 10/June/2021.
 <br />
 *For now ( 23/May/2021) Application working Functionalities:
 <br />
+
 1- Clients ability to View various sport centers, facilities and their available slots. 
 
 2- Clients ability to book preferred sport slot. 
@@ -33,6 +34,7 @@ Project duration is from 10/April/2021 until 10/June/2021.
 <br />
 *In case you like to run our project: 
 <br />
+
 To login in as USER ====> username: m    , password : m
 
 To login in as ADMIN ====> username: BBC Futsal Center    , password : 0000
